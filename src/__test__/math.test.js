@@ -1,10 +1,17 @@
-const { addition, substraction, multiply } = require("../commonMatchers/math");
+const {
+  addition,
+  substraction,
+  multiply,
+  division,
+} = require("../commonMatchers/math");
 
 describe("Basic mathmetics test ", () => {
+  // test cases for addition
   it("should addition two numbers", () => {
     expect(addition(5, 10)).toBe(15);
   });
 
+  //   test cases for substraction
   it("should subtract when the first number is larger", () => {
     expect(substraction(10, 5)).toBe(5);
   });
@@ -29,6 +36,7 @@ describe("Basic mathmetics test ", () => {
     expect(substraction(-10, -4)).toBe(-6);
   });
 
+  //   test cases for multply
   it("should multply when two positive numbers", () => {
     expect(multiply(5, 10)).toBe(50);
   });
@@ -43,5 +51,22 @@ describe("Basic mathmetics test ", () => {
 
   it("should multiply when two numbers is zero", () => {
     expect(multiply(0, 0)).toBe(0);
+  });
+
+  //   test cases for division
+  test("should division when first number is larger", () => {
+    expect(division(10, 2)).toBe(5);
+  });
+
+  test("should division when first number is less than second number", () => {
+    expect(division(6, 12)).toBe(0.5);
+  });
+
+  test("should division when two numbers is negative", () => {
+    expect(division(-2, -2)).toBe(1);
+  });
+
+  test("should division when two numbers is zero", () => {
+    expect(division(0, 0)).toBeNaN();
   });
 });
