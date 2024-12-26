@@ -3,6 +3,7 @@ const {
   substraction,
   multiply,
   division,
+  percentage,
 } = require("../commonMatchers/math");
 
 describe("Basic mathmetics test ", () => {
@@ -68,5 +69,26 @@ describe("Basic mathmetics test ", () => {
 
   test("should division when two numbers is zero", () => {
     expect(division(0, 0)).toBeNaN();
+  });
+
+  //   percentage
+  test("should percentage", () => {
+    expect(percentage(60, 80)).toBe(48);
+  });
+
+  test("should percentage when value is negative", () => {
+    expect(percentage(-60, 80)).toBe(-48);
+  });
+
+  test("should percentage when value is zero", () => {
+    expect(percentage(0, 20)).toBe(0);
+  });
+
+  test("should percentage when percentage is negative number", () => {
+    expect(percentage(60, -80)).toBe(-48);
+  });
+
+  test("should percentage when value and percentage is negative", () => {
+    expect(percentage(-60, -80)).toBe(48);
   });
 });
